@@ -6,7 +6,7 @@ const Resume = () => {
       <Heading pageTitle="Resume" />
       <h2>Resume</h2>
       <p>My resume is available below to view or <a href="/resume.pdf">download</a>.</p>
-      <object data='/resume.pdf#zoom=75&amp;scrollbar=1&amp;toolbar=0&amp;messages=0'
+      <object data='/resume.pdf#zoom=60&amp;scrollbar=0&amp;toolbar=1&amp;messages=0'
         type='application/pdf'
         width='100%'
         height='600' >

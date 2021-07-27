@@ -19,8 +19,8 @@
   border-radius: 0.75rem;
   align-items: center;
   vertical-align: middle;
-  width:60%;
-  max-width: 60%;
+  width:65%;
+  max-width: 65%;
   display:flex;
   align-items: flex-start;
   padding:10px;
@@ -39,11 +39,6 @@
   padding: 0px 10px;
 }
 .copyright{
-  /*
-  text-align: right;
-  width:60%;
-  max-width: 60%;
-  */
   position: absolute;
   bottom: 0px;
   right: 0px;

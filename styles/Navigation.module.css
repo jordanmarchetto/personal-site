@@ -9,19 +9,22 @@
   flex-basis: 100%;
   width: 100%;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   height: 60px;
   border: 1px solid var(--border-color);
   border-radius: 3px;
   margin: 5px 0px;
-  font-variant: small-caps;
   color: var(--primary-color);
-  font-size: 2em;
+  font-size: 1.5em;
   text-align: right;
   padding: 0px 10px;
 
   background: var(--primary-color);
   color: white;
+}
+
+.text{
+  margin-left: 5px;
 }
 
 .navItem:hover{
