@@ -55,3 +55,9 @@ a:hover{
   color: var(--link-color-hover);
 }
 
+@media (max-width:600px){
+  h2{
+    margin:0px;
+  }
+
+}

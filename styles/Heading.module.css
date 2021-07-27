@@ -11,3 +11,11 @@
   cursor: pointer;
   color: var(--primary-color-hover);
 }
+
+@media (max-width:600px){
+  .heading{
+    line-height: 1em;
+    text-align: center;
+  }
+
+}

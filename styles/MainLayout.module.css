@@ -44,3 +44,17 @@
   right: 0px;
   padding:10px;
 }
+
+
+@media (max-width:600px){
+  .content{
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .main{
+    order: 0;
+  }
+  .navigation{
+    order: 1;
+  }
+}
