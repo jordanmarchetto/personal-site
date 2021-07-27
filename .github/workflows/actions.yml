@@ -25,8 +25,6 @@ jobs:
         node-version: 16
     - run: npm ci
     - run: npm run build
-    - run: ls -al
-    - run: ls -al out/
     - name: push build to remote server
       uses: easingthemes/ssh-deploy@main
       env:
