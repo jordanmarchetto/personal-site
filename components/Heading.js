@@ -8,7 +8,7 @@ const Heading = ({pageTitle}) => {
                 <title>{pageTitle ? pageTitle + " | Jordan Marchetto" : "Jordan Marchetto"}</title>
             </Head>
             <div className={styles.heading_wrapper}>
-            <Link href="/">
+            <Link href="/" passHref>
                 <h1 className={styles.heading}>Jordan Marchetto</h1>
             </Link>
         </div>

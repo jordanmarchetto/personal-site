@@ -5,22 +5,22 @@ const Navigation = () => {
     return (
         <header>
             <div className={styles.navItems}>
-                <Link href="/about">
+                <Link href="/about" passHref>
                     <div className={styles.navItem}>
                         about
                     </div>
                 </Link>
-                <Link href="/code">
+                <Link href="/code" passHref>
                     <div className={styles.navItem}>
                         code
                     </div>
                 </Link>
-                <Link href="/contact">
+                <Link href="/contact" passHref>
                     <div className={styles.navItem}>
                         contact
                     </div>
                 </Link>
-                <Link href="/resume">
+                <Link href="/resume" passHref>
                     <div className={styles.navItem}>
                         resume
                     </div>

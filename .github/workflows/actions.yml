@@ -13,50 +13,27 @@ jobs:
       - run: npm run build
 
 
-#name: scp files on release
-#on: [release]
-#jobs:
-#  build:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: actions/checkout@v2
-#      - uses: actions/setup-node@v2
-#        with:
-#          node-version: 16
-#      - name: make envfile
-#        uses: SpicyPizza/create-envfile@v1
-#        with:
-#          envkey_PUBLIC_URL: ${{ secrets.ENV_PUBLIC_URL }}
-#          envkey_REACT_APP_TITLE: ${{ secrets.ENV_REACT_APP_TITLE }}
-#          envkey_REACT_APP_REGION: ${{ secrets.ENV_REACT_APP_REGION }}      
-#      - run: npm ci
-#      - run: npm run build
-#  deploy:
-#    needs: build
-#    runs-on: ubuntu-latest
-#    steps:
-#    - name: get latest code
-#      uses: actions/checkout@master
-#    - name: setup node
-#      uses: actions/setup-node@v2
-#      with: 
-#        node-version: 16
-#    - name: make envfile
-#      uses: SpicyPizza/create-envfile@v1
-#      with:
-#        envkey_PUBLIC_URL: ${{ secrets.ENV_PUBLIC_URL }}
-#        envkey_REACT_APP_TITLE: ${{ secrets.ENV_REACT_APP_TITLE }}
-#        envkey_REACT_APP_REGION: ${{ secrets.ENV_REACT_APP_REGION }}
-#    - run: ls -al
-#    - run: npm ci
-#    - run: npm run build
-#    - name: push build to remote server
-#      uses: easingthemes/ssh-deploy@main
-#      env:
-#          SSH_PRIVATE_KEY: ${{ secrets.KEY }}
-#          ARGS: "-rltgoDzvO"
-#          SOURCE: "build/"
-#          REMOTE_HOST: ${{ secrets.HOST }}
-#          REMOTE_PORT: ${{ secrets.PORT }}
-#          REMOTE_USER: ${{ secrets.USERNAME }}
-#          TARGET: ${{ secrets.SSH_PATH }}
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - name: get latest code
+      uses: actions/checkout@master
+    - name: setup node
+      uses: actions/setup-node@v2
+      with: 
+        node-version: 16
+    - run: npm ci
+    - run: npm run build
+    - run: ls -al
+    - run: ls -al out/
+    - name: push build to remote server
+      uses: easingthemes/ssh-deploy@main
+      env:
+          SSH_PRIVATE_KEY: ${{ secrets.KEY }}
+          ARGS: "-rltgoDzvO"
+          SOURCE: "out/"
+          REMOTE_HOST: ${{ secrets.HOST }}
+          REMOTE_PORT: ${{ secrets.PORT }}
+          REMOTE_USER: ${{ secrets.USERNAME }}
+          TARGET: ${{ secrets.SSH_PATH }}
