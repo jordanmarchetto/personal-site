@@ -1,0 +1,28 @@
+.navItems{
+  min-height: 300px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.navItem{
+  display:flex;
+  flex-basis: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-end;
+  height: 60px;
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  margin: 5px 0px;
+  font-variant: small-caps;
+  color: var(--primary-color);
+  font-size: 2em;
+  text-align: right;
+  padding: 0px 10px;
+}
+
+.navItem:hover{
+  cursor: pointer;
+  color: var(--primary-color-hover);
+  border-color: var(--border-color-hover);
+}

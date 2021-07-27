@@ -1,0 +1,13 @@
+.heading_wrapper{
+  text-align: right;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.heading{
+  display:inline-block;
+  margin:5px 0px;
+}
+.heading:hover{
+  cursor: pointer;
+  color: var(--primary-color-hover);
+}
