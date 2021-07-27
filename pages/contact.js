@@ -5,7 +5,7 @@ const Contact = () => {
     <div>
       <Heading pageTitle="Contact" />
       <h2>Contact</h2>
-      <p>For all inquiries, email me at: <a href="mailto:contact@jordanmarchetto.com">contact@jordanmarchetto.com</a></p>
+      <p>For all inquiries, email me at: <a href="mailto:contact@jordanmarchetto.com">contact@jordanmarchetto.com</a>.</p>
     </div>
   );
 }
