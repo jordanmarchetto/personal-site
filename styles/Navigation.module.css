@@ -19,10 +19,18 @@
   font-size: 2em;
   text-align: right;
   padding: 0px 10px;
+
+  background: var(--primary-color);
+  color: white;
 }
 
 .navItem:hover{
   cursor: pointer;
   color: var(--primary-color-hover);
   border-color: var(--border-color-hover);
+
+  color: white;
+  background: var(--primary-color-hover);
+  box-shadow:  1px 3px 10px 1px rgba(0,0,0,0.36), 0 0 0 1px rgba(0, 0, 0, 0.1);
+
 }
