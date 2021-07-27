@@ -6,6 +6,7 @@ const Heading = ({pageTitle}) => {
         <>
             <Head>
                 <title>{pageTitle ? pageTitle + " | Jordan Marchetto" : "Jordan Marchetto"}</title>
+                <meta name="description" content="Career and contact information for web developer, Jordan Marchetto" />
             </Head>
             <div className={styles.heading_wrapper}>
             <Link href="/" passHref>
