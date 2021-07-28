@@ -10,7 +10,7 @@ const Heading = ({pageTitle}) => {
             </Head>
             <div className={styles.heading_wrapper}>
             <Link href="/" passHref>
-                <h1 className={styles.heading}>Jordan Marchetto</h1>
+                <h1 className={styles.heading + " nav-change"} data-link="home">Jordan Marchetto</h1>
             </Link>
         </div>
         </>
