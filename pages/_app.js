@@ -16,7 +16,8 @@ export function reportWebVitals({ id, name, label, value }) {
 }
 
 function MyApp({ Component, pageProps }) {
-  const ga_id = "UA-132107286-1";
+  //const ga_id = "UA-132107286-1";
+  const ga_id = "G-330862801";
   const gtm_id = "GTM-5J67PNS";
   return (
     <>
