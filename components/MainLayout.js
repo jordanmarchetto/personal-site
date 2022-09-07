@@ -13,7 +13,7 @@ const MainLayout = ({ children }) => {
                     {children}
                 </div>
             </div>
-            <div className={styles.copyright}>&copy; 2021 - <a href="mailto:contact@jordanmarchetto.com">Jordan Marchetto</a></div>
+            <div className={styles.copyright}>&copy; {new Date().getFullYear()} - <a href="mailto:contact@jordanmarchetto.com">Jordan Marchetto</a></div>
         </div>
     );
 }
