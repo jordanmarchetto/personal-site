@@ -1,5 +1,6 @@
 import MainLayout from '../components/MainLayout'
 import Head from 'next/head';
+import 'material-icons/iconfont/material-icons.css'
 import '../styles/globals.css'
 
 export function reportWebVitals({ id, name, label, value }) {
