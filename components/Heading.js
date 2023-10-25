@@ -9,7 +9,7 @@ const Heading = ({pageTitle}) => {
                 <meta name="description" content="Career and contact information for web developer, Jordan Marchetto" />
             </Head>
             <div className={styles.heading_wrapper}>
-            <Link href="/" passHref>
+            <Link legacyBehavior href="/" passHref>
                 <h1 className={styles.heading + " nav-change"} data-link="home">Jordan Marchetto</h1>
             </Link>
         </div>
