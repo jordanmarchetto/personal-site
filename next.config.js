@@ -1,5 +1,5 @@
 module.exports = {
   reactStrictMode: true,
-  output: 'standalone',
+  output: 'export',
   trailingSlash: true
 }

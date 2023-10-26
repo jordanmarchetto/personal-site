@@ -1,24 +1,18 @@
 version: '3'
-
 services:
-  personal-site:
-    container_name: personal-site
+  # Next.js Application Service
+  nextjs:
     build:
-      context: ./
-        #dockerfile: prod.Dockerfile
-        #args:
-        #ENV_VARIABLE: ${ENV_VARIABLE}
-        #NEXT_PUBLIC_ENV_VARIABLE: ${NEXT_PUBLIC_ENV_VARIABLE}
-    restart: always
+      context: ./ 
+      dockerfile: Dockerfile  # Point to your Next.js Dockerfile
+
+  # Nginx Service
+  nginx:
+    image: nginx:latest  # Use the official Nginx image
     ports:
-      - 3000:3000
-        #networks:
-        #- my_network
+      - "80:80"  # Customize the port if needed
+    volumes:
+      #- ./nginx-config/nginx.conf:/etc/nginx/nginx.conf  # Customize Nginx configuration path
+      #- ./nextjs-app/build:/usr/share/nginx/html  # Customize the path to your Next.js build directory
+      - ./out:/usr/share/nginx/html  # Customize the path to your Next.js build directory
 
-  # Add more containers below (nginx, postgres, etc.)
-
-# Define a network, which allows containers to communicate
-# with each other, by using their container name as a hostname
-#networks:
-#my_network:
-#external: true
