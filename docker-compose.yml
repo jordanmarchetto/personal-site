@@ -3,22 +3,29 @@ services:
   # Next.js Application Service
   nextjs:
     build:
-      context: ./ 
+      context: ./
       dockerfile: Dockerfile  # Point to your Next.js Dockerfile
     volumes:
       - shared-html-dir:/app/static_html  # Mount the Next.js 'out' directory to a named volume
-        
+
   # Nginx Service
   nginx:
     image: nginx:latest  # Use the official Nginx image
     depends_on:
       - nextjs
     ports:
-      - "80:80"  # Customize the port if needed
+      - "${NGINX_PORT}:80"  # Customize the port if needed
     volumes:
       - shared-html-dir:/usr/share/nginx/html  # Use a named volume for sharing
       - ./nginx.conf:/etc/nginx/conf.d/nginx.conf  # Mount custom Nginx configuration
+    networks:
+      - shared-network
 
 volumes:
   shared-html-dir:
+
+networks:
+  shared-network:
+    external: true
+    name: "${SHARED_NETWORK}"
 
