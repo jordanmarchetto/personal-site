@@ -5,7 +5,7 @@ const Code = () => {
     <div>
       <Heading pageTitle="Code" />
       <h2>Code</h2>
-      <p>Check out my <a href="https://github.com/jordanmarchetto">github</a> page for some example personal projects I&apos;ve put together.</p>
+      <p>Check out <a href="https://github.com/jordanmarchetto">github</a> for some example personal projects I&apos;ve put together.</p>
     </div>
   );
 }
