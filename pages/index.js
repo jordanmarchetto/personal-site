@@ -10,7 +10,7 @@ export default function Home() {
     <div className={styles.wrapper}>
       <h1 className={styles.title}>Jordan Marchetto</h1>
       <hr className={styles.divider} />
-      <p className={styles.details}><strong>Full Stack Developer / Software Engineer</strong> &middot; <a href="mailto:contact@jordanmarchetto.com">contact@jordanmarchetto.com</a> </p>
+      <p className={styles.details}><strong>Senior Software Engineer / Tech Lead</strong> &middot; <a href="mailto:contact@jordanmarchetto.com">contact@jordanmarchetto.com</a> </p>
     </div>
     </>
 
