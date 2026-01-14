@@ -1,11 +1,8 @@
-
 name: build site on push to main
-
 on:
   push:
     branches:
-      - 'main'
-
+      - main
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -16,42 +13,31 @@ jobs:
           node-version: 24
       - run: yarn install
       - run: yarn build
-
-  test_deploy:
-    needs: build
-    - name: Tailscale
-      uses: tailscale/github-action@v4
-      with:
-        oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
-        oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
-        tags: tag:ci
-        ping: ${{ secrets.HOST }}
-
   deploy:
     needs: build
     runs-on: ubuntu-latest
     steps:
-    - name: get latest code
-      uses: actions/checkout@master
-    - name: setup node
-      uses: actions/setup-node@v3
-      with: 
-        node-version: 16
-    - run: yarn install
-    - run: yarn build
-    - name: Tailscale
-      uses: tailscale/github-action@v4
-      with:
-        oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
-        oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
-        tags: tag:ci
-        ping: ${{ secrets.HOST }}
-    - name: push build to remote server
-      uses: easingthemes/ssh-deploy@main
-      env:
+      - name: get latest code
+        uses: actions/checkout@master
+      - name: setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 24
+      - run: yarn install
+      - run: yarn build
+      - name: Tailscale
+        uses: tailscale/github-action@v4
+        with:
+          oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
+          oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
+          tags: tag:ci
+          ping: ${{ secrets.HOST }}
+      - name: push build to remote server
+        uses: easingthemes/ssh-deploy@main
+        env:
           SSH_PRIVATE_KEY: ${{ secrets.KEY }}
-          ARGS: "-rltgoDzvO"
-          SOURCE: "out/"
+          ARGS: -rltgoDzvO
+          SOURCE: out/
           REMOTE_HOST: ${{ secrets.HOST }}
           REMOTE_PORT: ${{ secrets.PORT }}
           REMOTE_USER: ${{ secrets.USERNAME }}
