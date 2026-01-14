@@ -1,0 +1,27 @@
+name: build site and make sure we can deploy before merge
+on:
+  pull_request:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 24
+      - run: yarn install
+      - run: yarn build
+  test_deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Tailscale
+        uses: tailscale/github-action@v4
+        with:
+          oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
+          oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
+          version: latest
+          tags: tag:ci
+          ping: ${{ secrets.HOST }}
