@@ -17,15 +17,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: get latest code
-        uses: actions/checkout@master
-      - name: setup node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 24
-      - run: yarn install
-      - run: yarn build
-      - name: Tailscale
+     - name: Tailscale
         uses: tailscale/github-action@v4
         with:
           oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
