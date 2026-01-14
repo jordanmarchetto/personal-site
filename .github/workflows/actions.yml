@@ -24,6 +24,13 @@ jobs:
         node-version: 16
     - run: yarn install
     - run: yarn build
+    - name: Tailscale
+      uses: tailscale/github-action@v4
+      with:
+        oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
+        oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
+        tags: tag:ci
+        ping: ${{ secrets.HOST }}
     - name: push build to remote server
       uses: easingthemes/ssh-deploy@main
       env:
